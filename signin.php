@@ -49,7 +49,7 @@ if (isset ($_POST["usernameInput"]) && isset($_POST["passwordInput"])
       $accountType = 'basic';
     }
   }
-  if (!(ctype_alnum($usedIllegalCharacters) || !(ctype_alnum($password)) || 
+  if (!(ctype_alnum($username) || !(ctype_alnum($password)) || 
       !(ctype_alnum($email)))){
     $usedIllegalCharacters=true;
   }
