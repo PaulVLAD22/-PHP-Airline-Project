@@ -1,0 +1,22 @@
+form{
+  position: absolute;
+  top:30%;
+  left:30%;
+  width:40vw;
+  height:30vh;
+  background-color: khaki; 
+  font-size:3vw;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  align-items: center;
+  text-align: center;
+  border-radius: 2vw;
+}
+input{
+  font-size:2.2vw;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bolder;
+}
+body{
+  background-color: #95c1f0;
+}
