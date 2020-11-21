@@ -1,0 +1,110 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+body{
+  background-color:#e6e6e6;
+}
+#topBar {
+  position: relative;
+  overflow: hidden;
+  background-color: black;
+}
+#topBar h2 {
+  position: relative;
+  align-items: center;
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+  color: #f7dc6f;
+  font-size: 2.4vw;
+  font-weight: bold;
+  width:20vw;
+}
+#userGreeting {
+  float:left;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#logOutBtn {
+  position: relative;
+  background-color:black;
+  width:10vw;
+  float: right;
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+  color: #f7dc6f;
+  font-size: 2.4vw;
+  font-weight: bold;
+  margin: 0 1vw 0 0;
+}
+#validateTickets{
+  display:inline-block;
+  width:22.5vw;
+  height:auto;
+  padding:1vw 1vw 1vw 1vw;
+  position: relative;
+  left:50%;
+  transform:translateX(-50%);
+  margin: 2vh 0 2vh 0;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 2vw;
+  font-weight: bold;
+  background-color:#95c1f0;
+  border-radius: 2vw;
+}
+#ticketsList{
+  width:70vw;
+  height:60vh;
+  border-radius: 1.5vw;
+  position: relative;
+  left:50%;
+  transform:translateX(-50%);
+  background-color:#f7dc6f;
+  display:flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+.ticketRequest{
+  background-color:#f7dc6f;
+  display:flex;
+  flex-direction: row;
+  height:5vh;
+  width:auto;
+  margin: 5vh 5vw 0 5vw;
+}
+.ticketInfo{
+  position: relative;
+  display:inline-block;
+  background-color:white;
+  padding-left:1vw;
+  height:5vh;
+  width:52vw;
+  font-size:1vw;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  
+}
+.btnMenu{
+  margin-left:1vw;
+  width:auto;
+  height:5vh;
+  display:flex;
+  flex-direction: row;
+}
+.btnTicket{
+  margin-left:2vw;
+  height:auto;
+  width:2vw;
+  font-size:1.5vw;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  background-color: white;
+  border-style: solid;
+  border-width: 0.1vw;
+  border-radius: 0.2vw;
+
+}
+
