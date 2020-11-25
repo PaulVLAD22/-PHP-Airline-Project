@@ -54,7 +54,7 @@
     echo '<h2 id="userGreeting">Hello ' . $user . '|</h2>';
     ?>
     <h2 id="digitalClock"></h2>
-    <form action='logout.php'>
+    <form action='Back-End/logout.php'>
       <input type='submit' id="logOutBtn" value='Log Out'>
     </form>
   </div>

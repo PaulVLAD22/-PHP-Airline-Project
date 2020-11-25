@@ -4,7 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin's Home</title>
   <?php
-  include 'get_tickets.php';
+  include 'Back-End/get_tickets.php';
   ?>
   <style>
     <?php
@@ -27,7 +27,7 @@ $username=$_SESSION['username'];
     <?php
     echo '<h2 id="userGreeting">Hello ' . $username . '</h2>';
     ?>
-    <form action="logout.php" method="post">
+    <form action="Back-End/logout.php" method="post">
       <input type='submit' id='logOutBtn' value='LogOut'>
     </form>
   </div>

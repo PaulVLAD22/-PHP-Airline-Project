@@ -20,10 +20,10 @@ function switchLogin() {
     var signInHtml = "";
     if (signinFailed == "") {
       signInHtml =
-        "<form action='signin.php' method='POST'>        <label for='usernameInput'>Enter Username:</label><br>        <input type='text' id='usernameInput' name='usernameInput' placeholder='Username'><br>        <label for='passwordInput'>Enter Password:</label><br>        <input type='password' id='passwordInput' name='passwordInput' placeholder='Password'><br><label for='confirmpass'>Confirm Password:</label><br> <input type='password' id='confirmpass' name='confirmpass' placeholder='Password'><br>  <label for='emailInput'>Enter Email:</label><br>    <input type='email' id='emailInput' name='emailInput' placeholder='Email'><br><br>   <input type='submit' value='Submit' class='submitBtn'>   </form>";
+        "<form action='Back-End/signin.php' method='POST'>        <label for='usernameInput'>Enter Username:</label><br>        <input type='text' id='usernameInput' name='usernameInput' placeholder='Username'><br>        <label for='passwordInput'>Enter Password:</label><br>        <input type='password' id='passwordInput' name='passwordInput' placeholder='Password'><br><label for='confirmpass'>Confirm Password:</label><br> <input type='password' id='confirmpass' name='confirmpass' placeholder='Password'><br>  <label for='emailInput'>Enter Email:</label><br>    <input type='email' id='emailInput' name='emailInput' placeholder='Email'><br><br>   <input type='submit' value='Submit' class='submitBtn'>   </form>";
     } else {
       signInHtml =
-        "<form action='signin.php' method='POST'>        <label for='usernameInput'>Enter Username:</label><br>        <input type='text' id='usernameInput' name='usernameInput' placeholder='Username'><br>        <label for='passwordInput'>Enter Password:</label><br>        <input type='password' id='passwordInput' name='passwordInput' placeholder='Password'><br><label for='confirmpass'>Confirm Password:</label><br> <input type='password' id='confirmpass' name='confirmpass' placeholder='Password'><br>  <label for='emailInput'>Enter Email:</label><br>    <input type='email' id='emailInput' name='emailInput' placeholder='Email'><br><h3 id='failedSignUpMessage'>" +
+        "<form action='Back-End/signin.php' method='POST'>        <label for='usernameInput'>Enter Username:</label><br>        <input type='text' id='usernameInput' name='usernameInput' placeholder='Username'><br>        <label for='passwordInput'>Enter Password:</label><br>        <input type='password' id='passwordInput' name='passwordInput' placeholder='Password'><br><label for='confirmpass'>Confirm Password:</label><br> <input type='password' id='confirmpass' name='confirmpass' placeholder='Password'><br>  <label for='emailInput'>Enter Email:</label><br>    <input type='email' id='emailInput' name='emailInput' placeholder='Email'><br><h3 id='failedSignUpMessage'>" +
         signinProblem +
         "</h3><br><input type='submit' value='Submit' class='submitBtn'>   </form>";
       signinProblem='';
@@ -37,10 +37,10 @@ function switchLogin() {
     var loginHtml = "";
     if (loginFailed == "") {
       loginHtml =
-        "<form action='login.php' method='POST'>        <label for='usernameInput'>Enter Username:</label><br>        <input type='text' id='usernameInput' name='usernameInput' placeholder='Username'><br>        <label for='passwordInput'>Enter Password:</label><br>        <input type='password' id='passwordInput' name='passwordInput' placeholder='Password'><br><a onclick='displayForgotPassDiv()'>Forgot password?</a><br><br>        <input type='submit' value='User' class='submitBtn' name='loginPassanger'><input type='submit' value='Admin' class='submitBtn' name='loginAdmin'>       </form>";
+        "<form action='Back-End/login.php' method='POST'>        <label for='usernameInput'>Enter Username:</label><br>        <input type='text' id='usernameInput' name='usernameInput' placeholder='Username'><br>        <label for='passwordInput'>Enter Password:</label><br>        <input type='password' id='passwordInput' name='passwordInput' placeholder='Password'><br><a onclick='displayForgotPassDiv()'>Forgot password?</a><br><br>        <input type='submit' value='User' class='submitBtn' name='loginPassanger'><input type='submit' value='Admin' class='submitBtn' name='loginAdmin'>       </form>";
     } else {
       loginHtml =
-        "<form action='login.php' method='POST'>        <label for='usernameInput'>Enter Username:</label><br>        <input type='text' id='usernameInput' name='usernameInput' placeholder='Username'><br>        <label for='passwordInput'>Enter Password:</label><br>        <input type='password' id='passwordInput' name='passwordInput' placeholder='Password'><br><a onclick='displayForgotPassDiv()'>Forgot password?</a><br><h3 id='failedLoginMessage'>" +
+        "<form action='Back-End/login.php' method='POST'>        <label for='usernameInput'>Enter Username:</label><br>        <input type='text' id='usernameInput' name='usernameInput' placeholder='Username'><br>        <label for='passwordInput'>Enter Password:</label><br>        <input type='password' id='passwordInput' name='passwordInput' placeholder='Password'><br><a onclick='displayForgotPassDiv()'>Forgot password?</a><br><h3 id='failedLoginMessage'>" +
         loginProblem +
         "<br><input type='submit' value='Submit' class='submitBtn' name='loginPassanger'><input type='submit' value='Admin' class='submitBtn' name='loginAdmin'>     </form>";
         loginProblem='';
@@ -56,11 +56,11 @@ function displayForgotPassDiv() {
   var forgotPassHtml='';
   if (forgotPasswordFailed!=''){//failed 
     forgotPassHtml =
-      "<form action='forgotPass.php' method='post'><label for='emailInput'>Enter Email:</label><br><input type='email' name='emailInput' placeholder='user@domain.com'><h3 id='failedLoginMessage'>"+forgotPasswordProblem+"</h3><br><input type='submit' value='Submit' class='submitBtn'></form>";
+      "<form action='Back-End/forgotPass.php' method='post'><label for='emailInput'>Enter Email:</label><br><input type='email' name='emailInput' placeholder='user@domain.com'><h3 id='failedLoginMessage'>"+forgotPasswordProblem+"</h3><br><input type='submit' value='Submit' class='submitBtn'></form>";
   }
   else{
     forgotPassHtml =
-    "<form action='forgotPass.php' method='post'><label for='emailInput'>Enter Email:</label><br><input type='email' name='emailInput' placeholder='user@domain.com'><br><br><input type='submit' value='Submit' class='submitBtn'></form>";
+    "<form action='Back-End/forgotPass.php' method='post'><label for='emailInput'>Enter Email:</label><br><input type='email' name='emailInput' placeholder='user@domain.com'><br><br><input type='submit' value='Submit' class='submitBtn'></form>";
   }
     loginFieldsDiv.innerHTML = forgotPassHtml;
 }

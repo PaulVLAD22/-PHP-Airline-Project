@@ -86,7 +86,7 @@ if (isset ($_POST["usernameInput"]) && isset($_POST["passwordInput"])
     $stmt->bind_param("ssss",$username,password_hash($password,PASSWORD_BCRYPT),$email,$token);
 
     if ($stmt->execute() === TRUE) {
-      header('location:/index.php');
+      header('location:../index.php');
       $mail = new PHPMailer(true);
       try {
         //Server settings
@@ -129,7 +129,7 @@ if (isset ($_POST["usernameInput"]) && isset($_POST["passwordInput"])
       $_SESSION['signinFailed'] = true;
       $_SESSION['signinProblem']='Username already used';
 
-      header('location:/index.php');
+      header('location:../index.php');
       //closing db
       $stmt->close();
       $conn->close();
@@ -152,7 +152,7 @@ if (isset ($_POST["usernameInput"]) && isset($_POST["passwordInput"])
     }
 
 
-    header('location:/index.php');
+    header('location:../index.php');
     
   }
 }
@@ -161,7 +161,7 @@ else{
   
   $_SESSION['signinFailed'] = true;
   $_SESSION['signinProblem']= 'Stop Playing';
-  header('location:/index.php');
+  header('location:../index.php');
 }
 
 

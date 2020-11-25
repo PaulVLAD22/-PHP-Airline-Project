@@ -23,7 +23,7 @@ if (!isset($_SESSION['email'])){
 $email = $_SESSION['email'];
 ?>
 
-<form action="activate.php" method="POST"><label for="tokenInput">Enter token for <?php echo $email;?></label><input type="text" name="tokenInput"><input type="submit" value="submit"> </form>
+<form action="Back-End/activate.php" method="POST"><label for="tokenInput">Enter token for <?php echo $email;?></label><input type="text" name="tokenInput"><input type="submit" value="submit"> </form>
 
 </body>
 </html>

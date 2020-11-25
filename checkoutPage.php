@@ -7,8 +7,8 @@
   <title>Credit Card Validation</title>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
-  <link rel="stylesheet" type="text/css" href="assets/css/demo.css">
+  <link rel="stylesheet" type="text/css" href="checkoutAssets/css/styles.css">
+  <link rel="stylesheet" type="text/css" href="checkoutAssets/css/demo.css">
   <link rel="icon" href="https://www.flaticon.com/svg/static/icons/svg/2598/2598297.svg" type="image/x-icon">
 </head>
 <?php
@@ -63,9 +63,9 @@ if($_SESSION['first_name']==''){
             </select>
           </div>
           <div class="form-group" id="credit_cards">
-            <img src="assets/images/visa.jpg" id="visa">
-            <img src="assets/images/mastercard.jpg" id="mastercard">
-            <img src="assets/images/amex.jpg" id="amex">
+            <img src="checkoutAssets/images/visa.jpg" id="visa">
+            <img src="checkoutAssets/images/mastercard.jpg" id="mastercard">
+            <img src="checkoutAssets/images/amex.jpg" id="amex">
           </div>
           <div class="form-group" id="pay-now">
             <button type="submit" class="btn btn-default" id="confirm-purchase">Confirm</button>
@@ -78,8 +78,8 @@ if($_SESSION['first_name']==''){
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="assets/js/jquery.payform.min.js" charset="utf-8"></script>
-  <script src="assets/js/script.js"></script>
+  <script src="checkoutAssets/js/jquery.payform.min.js" charset="utf-8"></script>
+  <script src="checkoutAssets/js/script.js"></script>
 
 </body>
 
