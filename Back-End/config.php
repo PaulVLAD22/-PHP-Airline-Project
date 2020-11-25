@@ -5,7 +5,7 @@ return array(
   'username' => getenv('username'),
   'password' => getenv('password'),
   'dbname' => getenv('dbname'),
-  'emailPass' => 'getenv('emailPass')
+  'emailPass' => getenv('emailPass')
 );
 
 function dbConnection($configs){
