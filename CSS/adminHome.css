@@ -85,7 +85,6 @@ body{
   font-size:1vw;
   font-family: 'Courier New', Courier, monospace;
   font-weight: bold;
-  
 }
 .btnMenu{
   margin-left:1vw;
@@ -106,5 +105,16 @@ body{
   border-width: 0.1vw;
   border-radius: 0.2vw;
 
+}
+.ticket_id_input{
+  position: relative;
+  display:inline-block;
+  background-color:white;
+  padding-left:1vw;
+  height:5vh;
+  width:8vw;
+  font-size:1vw;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
 }
 

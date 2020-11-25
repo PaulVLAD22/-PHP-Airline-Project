@@ -76,7 +76,7 @@ function showFlightsPage() {
   // open html page with info from a site with all flights from a company
 }
 
-function openFlightsPage() {
+function openFlightsPage() {  // VA FI INLOCUIT DE UN FISIER PHP CARE VA DA CA POST statia plecare,destinatia,data
   window.open('flightsInfo.php');
   // display on right side (box-2 div) all flights information
 }

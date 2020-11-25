@@ -3,17 +3,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin's Home</title>
+  <?php
+  include 'get_tickets.php';
+  ?>
   <style>
     <?php
     include 'CSS/adminHome.css';
     ?>
   </style>
+  <script>
+    var array_tickets='<?php echo json_encode($array_tickets);?>';
+    <?php
+    include "JS/adminHome.js";
+    ?>
+  </script>
 </head>
 <?php
 session_start();
 $username=$_SESSION['username'];
 ?>
-<body>
+<body onload='load_tickets()'>
   <div id="topBar">
     <?php
     echo '<h2 id="userGreeting">Hello ' . $username . '</h2>';
@@ -24,7 +33,6 @@ $username=$_SESSION['username'];
   </div>
   <div id="validateTickets">Validate Tickets:</div>
   <div id="ticketsList">
-    <form class="ticketRequest"><input disabled value='informatii bilet' class='ticketInfo'><div class='btnMenu'><input type='submit' value='Y' class='btnTicket'><input type='submit' value='X' class='btnTicket'></div></form>
   </div>
 </body>
 </html>

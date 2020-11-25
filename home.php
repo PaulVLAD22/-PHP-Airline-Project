@@ -5,7 +5,7 @@
   session_start();
   $completeDetailsFailed=false;
   $completeDetailsProblem='Submit Problem';
-  if (!isset($_SESSION['loggedIn'])) {
+  if (!(isset($_SESSION['loggedIn']))) {
     die('Failed login');
   }
   if (isset($_SESSION['completeDetailsFailed'])){

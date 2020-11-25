@@ -72,6 +72,7 @@ if (isset($_POST["loginPassanger"])){
 
         if ($correctAccount == true) {
             session_start();
+            session_unset();
             //save account details
             $_SESSION['username'] = $username;
             $_SESSION['email'] = $email;
@@ -165,9 +166,8 @@ else if (isset($_POST['loginAdmin'])){// Admin Login
         if ($correctAccount == true) {
             session_start();
             //save account details
+            session_unset();
             $_SESSION['username'] = $username;
-            $_SESSION['email'] = $email;
-            $_SESSION['loggedIn'] = true;
             $_SESSION['adminLoggedIn']=true;
             $_SESSION['adminId']=$admin_id;
             unset($_SESSION['loggedin']);
