@@ -1,10 +1,10 @@
 <?php
 
 return array(
-  'host' =>'eu-cdbr-west-03.cleardb.net',
-  'username' => 'b6e92ded5425a9',
-  'password' =>'5636d5f8',
-  'dbname' => 'heroku_d2693f3b5fa1c11'
+  'host' =>getenv('host'),
+  'username' => getenv('username'),
+  'password' => getenv('password'),
+  'dbname' => getenv('dbname')
 );
 
 function dbConnection($configs){
