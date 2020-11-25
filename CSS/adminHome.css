@@ -118,3 +118,28 @@ body{
   font-weight: bold;
 }
 
+@media screen and (max-width: 1300px) {
+  .ticket_id_input{
+    font-size:2vw;
+  }
+  .ticketInfo{
+    font-size:1.5vw;
+    width:80vw;
+    overflow-x: scroll;
+  }
+  #logOutBtn{
+    width:20vw;
+    font-size:3.5vw;
+  } 
+  #ticketsList{
+    width:90vw;
+  }
+  #topBar h2{
+    width:30vw;
+    font-size:3.5vw;
+  } 
+  #validateTickets{
+    font-size:3vw;
+    width:30vw;
+  }
+}
