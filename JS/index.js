@@ -56,7 +56,7 @@ function displayForgotPassDiv() {
   var forgotPassHtml='';
   if (forgotPasswordFailed!=''){//failed 
     forgotPassHtml =
-      "<form action='Back-End/forgotPass.php' method='post'><label for='emailInput'>Enter Email:</label><br><input type='email' name='emailInput' placeholder='user@domain.com'><h3 id='failedLoginMessage'>"+forgotPasswordProblem+"</h3><br><input type='submit' value='Submit' class='submitBtn'></form>";
+      "<form action='Back-End/forgotPass.php' method='post'><label for='emailInput'>Enter Email:</label><br><input type='email' name='emailInput' placeholder='user@domain.com'><br><h3 id='failedLoginMessage'>"+forgotPasswordProblem+"</h3><br><input type='submit' value='Submit' class='submitBtn'></form>";
   }
   else{
     forgotPassHtml =

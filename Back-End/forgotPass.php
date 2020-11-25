@@ -9,8 +9,7 @@ require 'PHPMailer-master/src/SMTP.php';
 $configs = include('config.php');
 session_start();
 // resetting log in and sign in errors
-unset($_SESSION['signinFailed']);
-unset($_SESSION['loginFailed']);
+session_unset();
 //
 
 if (isset ($_POST['emailInput'])){
@@ -44,12 +43,10 @@ if (isset ($_POST['emailInput'])){
     $username = '';
     $token='';
     $correctAccount = false;
-
+    $token='';
 
     while ($row = $result->fetch_assoc()) {
-      $username = $row['username'];
-      $token = $row['token'];
-      $correctAccount = true;
+        $token=$row['token'];
       }
     //closing db
     $stmt->close();
@@ -64,7 +61,7 @@ if (isset ($_POST['emailInput'])){
         $mail->Host       = 'tls://smtp.gmail.com';                    // Set the SMTP server to send through
         $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
         $mail->Username   = 'vlavionflights@gmail.com';                     // SMTP username
-        $mail->Password   = 'parola34007';                               // SMTP password
+        $mail->Password   = $configs['emailPass'];                            // SMTP password
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
         $mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
   
@@ -78,7 +75,7 @@ if (isset ($_POST['emailInput'])){
         // Content
         $mail->isHTML(true);                                  // Set email format to HTML
         $mail->Subject = 'Sign Up';
-        $mail->Body    = 'Hi '.$username.' your token is : '.$token;
+        $mail->Body    = 'Hi your token is : '.$token;
         $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
   
         $mail->send();
@@ -98,13 +95,13 @@ if (isset ($_POST['emailInput'])){
   }
 }
 else{
-  session_start();
+  
   $_SESSION['forgotPasswordFailed']=true;
   $_SESSION['forgotPasswordProblem']='Stop Playing';
 }
 }
 else{
-  session_start();
+  
   $_SESSION['forgotPasswordFailed']=true;
   $_SESSION['forgotPasswordProblem']='Stop Playing';
 }
