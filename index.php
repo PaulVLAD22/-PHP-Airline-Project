@@ -41,6 +41,9 @@
 
   ?>
   <style>
+    a{
+      font-size:4vw;
+    }
     <?php
     include 'CSS/login.css';
     ?>
@@ -71,7 +74,7 @@
       <div id="sloganDiv">
         Depart Now
         <img id="logoDiv" src="https://www.flaticon.com/svg/static/icons/svg/2598/2598297.svg">
-        <a href="indexEXCEL.php"><h1>TEMA CU EXCEL</h1></a>
+        <a href="indexEXCEL.php">TEMA CU EXCEL</a>
       </div>
     </div>
     <div id="box-2">
