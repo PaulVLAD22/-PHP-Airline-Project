@@ -10,6 +10,9 @@ $configs = include('Back-End/config.php');
 
 
 if (isset($_POST['submit']) && isset($_POST['tabel'])){
+  if ($_POST['tabel']=='admin'){
+    die("NONONONO");
+  }
   $dbservername = $configs['host'];
   $dbusername = $configs['username'];
   $dbpassword = $configs['password'];
@@ -73,7 +76,7 @@ if (isset($_POST['submit']) && isset($_POST['tabel'])){
 <html>
   <body>
     <form action = '/indexEXCEL.php' method = 'post'>
-        <label>Tabel : (passenger,admin)</label>
+        <label>Tabel : (passenger)</label>
         <input name = 'tabel' type='text'>
         <input type='submit' text='Submit' name='submit'>
     </form>
