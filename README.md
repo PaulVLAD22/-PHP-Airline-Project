@@ -1,4 +1,4 @@
-# DAW-PHP2
+# DAW-PHP
 
 <h1>Tema1:</h1>
 
