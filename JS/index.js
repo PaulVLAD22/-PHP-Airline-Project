@@ -29,7 +29,7 @@ function switchLogin() {
       signinProblem='';
     }
     document.getElementById("loginFieldsDiv").innerHTML = signInHtml; //changing input fields
-    document.getElementById("loginMessageDiv").innerHTML = "Sign In"; //changing login message
+    document.getElementById("loginMessageDiv").innerHTML = "Sign Up"; //changing login message
     loginBool = 0;
   } else {
     // if signup already displaying DISPLAY LOGIN

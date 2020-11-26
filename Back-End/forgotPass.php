@@ -39,20 +39,20 @@ if (isset ($_POST['emailInput'])){
 
     $stmt->execute();
     $result = $stmt->get_result();
-
-    $username = '';
-    $token='';
     $correctAccount = false;
     $token='';
 
     while ($row = $result->fetch_assoc()) {
         $token=$row['token'];
+        $correctAccount=true;
       }
     //closing db
     $stmt->close();
     $conn->close();
 
-    if ($correctAccount) {
+    if ($correctAccount==true) {
+      $_SESSION['email']=$email;
+      header('location:../resetPassTokenPage.php');
       $mail = new PHPMailer(true);
       try {
         //Server settings
@@ -87,22 +87,24 @@ if (isset ($_POST['emailInput'])){
   else{
     session_start();
     $_SESSION['forgotPasswordFailed']=true;
-
+    $_SESSION['forgotPasswordProblem']='Invalid Email';
     if ($invalidEmail){
       $_SESSION['forgotPasswordProblem']='Invalid Email';
     }
-    header('location:/index.php');
+    header('location:../index.php');
   }
 }
 else{
   
   $_SESSION['forgotPasswordFailed']=true;
   $_SESSION['forgotPasswordProblem']='Stop Playing';
+  header('location:../index.php');
 }
 }
 else{
   
   $_SESSION['forgotPasswordFailed']=true;
   $_SESSION['forgotPasswordProblem']='Stop Playing';
+  header('location:../index.php');
 }
 ?>

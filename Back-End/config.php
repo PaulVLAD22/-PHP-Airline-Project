@@ -8,6 +8,7 @@ return array(
   'emailPass' => getenv('emailPass')
 );
 
+
 function dbConnection($configs){
   $dbservername = $configs['host'];
   $dbusername = $configs['username'];
