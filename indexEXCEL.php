@@ -31,7 +31,7 @@ if (isset($_POST['submit']) && isset($_POST['tabel'])){
   while ($row = $result->fetch_assoc()){
     $data[]=$row;
   }
-  $sql1 = "SHOW COLUMNS FROM PASSENGER";
+  $sql1 = "SHOW COLUMNS FROM ".$tabel." ;";
   $res = $conn->query($sql1);
   $col = [];
   while ($row =$res->fetch_assoc()){
