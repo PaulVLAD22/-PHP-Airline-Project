@@ -14,7 +14,7 @@ host : https://vlavion-flights.herokuapp.com/
 
 diagrama : https://dbdiagram.io/d/5f9fdd383a78976d7b7a1d41
 
-<img src="https://i.imgur.com/YLDfb6L.png">
+<img src="https://i.imgur.com/9fu3Wj4.png">
 
 
 Daca faceti cont nou va merge deoarece trebuie sa bagati un token pe care am reusit sa l fac sa l trimita pe emailul bagat la sign up.
