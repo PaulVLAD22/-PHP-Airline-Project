@@ -184,3 +184,36 @@ h3{
   background:none;
   text-decoration: underline;
 }
+#ticketsDiv{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  font-size: 1.5vw;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+}
+.userTicketsDiv{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  font-size: 1.5vw;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  padding-left:1vw;
+  margin-bottom:4vh;
+  padding-right:1vw;
+  padding-top:0.1vw;
+  padding-bottom:0.1vw;
+}
+#expiredTicketsBtn{
+  margin-top:5vh;
+  padding:0.2vw;
+  align-items: center;
+  font-size:1vw;
+}
+#expiredTicketsBtn:hover{
+  opacity: 0.8;
+  cursor:pointer;
+}

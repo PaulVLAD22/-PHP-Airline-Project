@@ -12,6 +12,7 @@
     $completeDetailsFailed=true;
     $completeDetailsProblem=$_SESSION['completeDetailsProblem'];
   }
+  include "Back-End/get_user_tickets.php";
   $user = $_SESSION['username'];
   $email = $_SESSION['email'];
   $first_name = $_SESSION['first_name'];
@@ -39,12 +40,14 @@
     var social_status = '<?php echo $social_status ?>';
     var completeDetailsFailed='<?php echo $completeDetailsFailed ?>';
     var completeDetailsProblem ='<?php echo $completeDetailsProblem ?>';
-    // add last_name and the others 
+    // tickets
+    var array_tickets_inactive='<?php echo json_encode($array_tickets_inactive) ?>';
+    var array_tickets_active='<?php echo json_encode($array_tickets_active) ?>';
+    var array_tickets_refused='<?php echo json_encode($array_tickets_refused) ?>';
     <?php
     include "JS/home.js";
     ?>
   </script>
-
 </head>
 
 <body onload="startTime()">

@@ -23,7 +23,7 @@ if (isset($_POST['y_input'])){// confirm ticket
     echo "OK";
 }
 else{
-  $sql ="DELETE FROM ticket where ticket_id = ? ;";
+  $sql ="update ticket set status='refused' where ticket_id=? ;";
 
   $stmt = $conn->prepare($sql);
 
