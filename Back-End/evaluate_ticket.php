@@ -3,7 +3,7 @@ $configs = include('config.php');
 $ticket_id=$_POST['ticket_id_input'];
 
 $ticket_id=preg_replace('/[^0-9]/', '', $ticket_id);
-
+$admin_id = $_SESSION['adminId'];
 
 $dbservername = $configs['host'];
 $dbusername = $configs['username'];
@@ -19,6 +19,12 @@ if (isset($_POST['y_input'])){// confirm ticket
 
   $stmt->bind_param("s",$ticket_id);
 
+  if($stmt->execute()===TRUE)
+    echo "OK";
+  
+  $sql2 = "insert into admin_ticket (admin_id,ticket_id) values (?,?)";
+  $stmt1 = $conn->prepare($sql);
+  $stmt1 -> bind_param("ss",$admin_id,$ticket_id);
   if($stmt->execute()===TRUE)
     echo "OK";
 }

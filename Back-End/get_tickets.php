@@ -2,7 +2,7 @@
 $configs = include('config.php');
 
 // session already started in home.php
-
+session_start();
 $dbservername = $configs['host'];
 $dbusername = $configs['username'];
 $dbpassword = $configs['password'];

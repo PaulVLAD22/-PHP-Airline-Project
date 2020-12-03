@@ -19,7 +19,7 @@
   </script>
 </head>
 <?php
-session_start();
+
 $username=$_SESSION['username'];
 ?>
 <body onload='load_tickets()'>
@@ -34,5 +34,6 @@ $username=$_SESSION['username'];
   <div id="validateTickets">Validate Tickets:</div>
   <div id="ticketsList">
   </div>
+  <form action="Back-End/getAdminRaport.php" method='post'><input name='submit' type='submit' value='Download Raport' class='submitbtn'>
 </body>
 </html>
