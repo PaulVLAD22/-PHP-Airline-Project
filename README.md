@@ -21,6 +21,6 @@ Daca faceti cont nou va merge deoarece trebuie sa bagati un token pe care am reu
 
 <h1>Tema3:</h1>
 Elementele de protectie sunt :
-<li>SQL INJECTION - stmt->prepare , bind_param </li>
+<li>SQL INJECTION - stmt->prepare , bind_param (asemanatoare cu mysql_real_escape) </li>
 <li>XRSF - token specific to session</li>
 <li>XSS - htmlspecialchars(input)</li>
