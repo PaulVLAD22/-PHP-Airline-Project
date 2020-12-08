@@ -19,3 +19,6 @@ diagrama : https://dbdiagram.io/d/5f9fdd383a78976d7b7a1d41
 
 Daca faceti cont nou va merge deoarece trebuie sa bagati un token pe care am reusit sa l fac sa l trimita pe emailul bagat la sign up.
 
+<h1>Tema3:</h1>
+Elementele de protectie sunt folosirea bind_param() si stmt->prepare() pentru a proteja impotriva atacurilor SQL INJECTION si a token-urilor specifice sesiunilor pentru a apara
+impotriva XRSF.
