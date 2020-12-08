@@ -20,12 +20,12 @@ function switchLogin() {
     var signInHtml = "";
     if (signinFailed == "") {
       signInHtml =
-        "<form action='Back-End/signin.php' method='POST'>        <label for='usernameInput'>Enter Username:</label><br>        <input type='text' id='usernameInput' name='usernameInput' placeholder='Username'><br>        <label for='passwordInput'>Enter Password:</label><br>        <input type='password' id='passwordInput' name='passwordInput' placeholder='Password'><br><label for='confirmpass'>Confirm Password:</label><br> <input type='password' id='confirmpass' name='confirmpass' placeholder='Password'><br>  <label for='emailInput'>Enter Email:</label><br>    <input type='email' id='emailInput' name='emailInput' placeholder='Email'><br><br>   <input type='submit' value='Submit' class='submitBtn'>   </form>";
+        "<form id='signInForm' action='Back-End/signin.php' method='POST'> <input type='hidden' name='token_csrf' value="+token_csrf+" >       <label for='usernameInput'>Enter Username:</label><br>        <input type='text' id='usernameInput' name='usernameInput' placeholder='Username'><br>        <label for='passwordInput'>Enter Password:</label><br>        <input type='password' id='passwordInput' name='passwordInput' placeholder='Password'><br><label for='confirmpass'>Confirm Password:</label><br> <input type='password' id='confirmpass' name='confirmpass' placeholder='Password'><br>  <label for='emailInput'>Enter Email:</label><br>    <input type='email' id='emailInput' name='emailInput' placeholder='Email'><br><br>  <input type='submit' value='Submit' class='submitBtn'>   </form>";
     } else {
       signInHtml =
-        "<form action='Back-End/signin.php' method='POST'>        <label for='usernameInput'>Enter Username:</label><br>        <input type='text' id='usernameInput' name='usernameInput' placeholder='Username'><br>        <label for='passwordInput'>Enter Password:</label><br>        <input type='password' id='passwordInput' name='passwordInput' placeholder='Password'><br><label for='confirmpass'>Confirm Password:</label><br> <input type='password' id='confirmpass' name='confirmpass' placeholder='Password'><br>  <label for='emailInput'>Enter Email:</label><br>    <input type='email' id='emailInput' name='emailInput' placeholder='Email'><br><h3 id='failedSignUpMessage'>" +
+        "<form id='signInForm' action='Back-End/signin.php' method='POST'> <input type='hidden' name='token_csrf' value="+token_csrf+" >       <label for='usernameInput'>Enter Username:</label><br>        <input type='text' id='usernameInput' name='usernameInput' placeholder='Username'><br>        <label for='passwordInput'>Enter Password:</label><br>        <input type='password' id='passwordInput' name='passwordInput' placeholder='Password'><br><label for='confirmpass'>Confirm Password:</label><br> <input type='password' id='confirmpass' name='confirmpass' placeholder='Password'><br>  <label for='emailInput'>Enter Email:</label><br>    <input type='email' id='emailInput' name='emailInput' placeholder='Email'><br><h3 id='failedSignUpMessage'>" +
         signinProblem +
-        "</h3><br><input type='submit' value='Submit' class='submitBtn'>   </form>";
+        "</h3><br><br><input type='submit' value='Submit' class='submitBtn'>   </form>";
       signinProblem='';
     }
     document.getElementById("loginFieldsDiv").innerHTML = signInHtml; //changing input fields
@@ -37,12 +37,12 @@ function switchLogin() {
     var loginHtml = "";
     if (loginFailed == "") {
       loginHtml =
-        "<form action='Back-End/login.php' method='POST'>        <label for='usernameInput'>Enter Username:</label><br>        <input type='text' id='usernameInput' name='usernameInput' placeholder='Username'><br>        <label for='passwordInput'>Enter Password:</label><br>        <input type='password' id='passwordInput' name='passwordInput' placeholder='Password'><br><a onclick='displayForgotPassDiv()'>Forgot password?</a><br><br>        <input type='submit' value='User' class='submitBtn' name='loginPassanger'><input type='submit' value='Admin' class='submitBtn' name='loginAdmin'>       </form>";
+        "<form id='logInForm' action='Back-End/login.php' method='POST'><input type='hidden' name='token_csrf' value="+token_csrf+" ><label for='usernameInput'>Enter Username:</label><br>        <input type='text' id='usernameInput' name='usernameInput' placeholder='Username'><br>        <label for='passwordInput'>Enter Password:</label><br>        <input type='password' id='passwordInput' name='passwordInput' placeholder='Password'><br><a onclick='displayForgotPassDiv()'>Forgot password?</a><br><br>    <input type='submit' value='User' class='submitBtn' name='loginPassanger'><input type='submit' value='Admin' class='submitBtn' name='loginAdmin'>       </form>";
     } else {
       loginHtml =
-        "<form action='Back-End/login.php' method='POST'>        <label for='usernameInput'>Enter Username:</label><br>        <input type='text' id='usernameInput' name='usernameInput' placeholder='Username'><br>        <label for='passwordInput'>Enter Password:</label><br>        <input type='password' id='passwordInput' name='passwordInput' placeholder='Password'><br><a onclick='displayForgotPassDiv()'>Forgot password?</a><br><h3 id='failedLoginMessage'>" +
+        "<form id='logInForm' action='Back-End/login.php' method='POST'><input type='hidden' name='token_csrf' value="+token_csrf+" >        <label for='usernameInput'>Enter Username:</label><br>        <input type='text' id='usernameInput' name='usernameInput' placeholder='Username'><br>        <label for='passwordInput'>Enter Password:</label><br>        <input type='password' id='passwordInput' name='passwordInput' placeholder='Password'><br><a onclick='displayForgotPassDiv()'>Forgot password?</a><br><h3 id='failedLoginMessage'>" +
         loginProblem +
-        "<br><input type='submit' value='Submit' class='submitBtn' name='loginPassanger'><input type='submit' value='Admin' class='submitBtn' name='loginAdmin'>     </form>";
+        "<br><input type='submit' value='User' class='submitBtn' name='loginPassanger'><input type='submit' value='Admin' class='submitBtn' name='loginAdmin'>     </form>";
         loginProblem='';
     }
     document.getElementById("loginFieldsDiv").innerHTML = loginHtml; //changing input fields

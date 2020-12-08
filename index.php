@@ -4,6 +4,7 @@
   <title>Vlavion Flights&#169;</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="https://www.flaticon.com/svg/static/icons/svg/2598/2598297.svg" type="image/x-icon">
+  
   <?php
   //setup vars
 
@@ -38,6 +39,14 @@
       $forgotPasswordProblem=$_SESSION['forgotPasswordProblem'];
     }
   }
+  //csrf protection
+  $token_csrf = isset($_SESSION['delete_customer_token']) ? $_SESSION['delete_customer_token'] : "";
+  if (!$token_csrf) {
+      // generate token and persist for later verification
+      // - in practice use openssl_random_pseudo_bytes() or similar instead of uniqid() 
+      $token_csrf = md5(uniqid());
+      $_SESSION['delete_customer_token']= $token_csrf;
+  }
 
   ?>
   <style>
@@ -58,11 +67,12 @@
     //forgot password case
     var forgotPasswordFailed = '<?php echo $forgotPasswordFailed ?>';
     var forgotPasswordProblem = '<?php echo $forgotPasswordProblem ?>';
-
+    var token_csrf = '<?php echo $token_csrf ?>';
     <?php
     include "JS/index.js";
     ?>
   </script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body onload="displayForm()">
@@ -89,6 +99,7 @@
       </div>
     </div>
   </div>
+  
 </body>
 
 </html>
