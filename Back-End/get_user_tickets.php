@@ -49,13 +49,13 @@ function get_tickets($status,&$array){
     $destination_station='';
     $departing_station='';
     $departing_date='';
-    while ($row = $result2->fetch_assoc()){
-      $ticket_price=$row['ticket_price'];
-      $destination_station=$row['destination_station'];
-      $departing_station=$row['departing_station'];
-      $departing_date=$row['flight_departure_date'];
+    while ($row3 = $result2->fetch_assoc()){
+      $ticket_price=$row3['ticket_price'];
+      $destination_station=$row3['destination_station'];
+      $departing_station=$row3['departing_station'];
+      $departing_date=$row3['flight_departure_date'];
     }
-    array_push($array,[$departing_date,$ticket_price,$destination_station,$departing_station]);
+    array_push($array,[$departing_date,$ticket_price,$destination_station,$departing_station,$ticket_id]);
     // CONTINUA AICI CE AI FACUT
     }
   }

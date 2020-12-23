@@ -217,3 +217,14 @@ h3{
   opacity: 0.8;
   cursor:pointer;
 }
+.tickets_span{
+  font-size:1vw;
+}
+.tickets_span input{
+  all:unset;
+  font-size:1vw;
+  
+}
+.tickets_span{
+  margin:0;
+}

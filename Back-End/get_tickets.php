@@ -8,7 +8,7 @@ $dbusername = $configs['username'];
 $dbpassword = $configs['password'];
 $dbName = $configs['dbname'];
 
-$array_tickets =[];
+$array_tickets =array();
 
 $conn = new mysqli($dbservername, $dbusername, $dbpassword, $dbName);
 
@@ -21,6 +21,7 @@ $stmt = $conn->prepare($sql);
 $stmt->execute();
 
 $result = $stmt->get_result();
+
 $card_number = '';
 $seat = '';
 $social_status='';
@@ -32,6 +33,7 @@ $flight_id='';
 $ticket_id='';
 $airline_name ='';
 while ($row = $result->fetch_assoc()){
+  
   $array_temp = [];
   $passenger_id=$row['passenger_id'];
   $card_number=$row['card_number'];
@@ -52,8 +54,8 @@ while ($row = $result->fetch_assoc()){
   $stmt3 = $conn->prepare($sql3);
   $stmt3->bind_param('s',$flight_id);
   $stmt3->execute();
-  $result = $stmt3->get_result();
-  while ($row1 = $result->fetch_assoc()){
+  $result4 = $stmt3->get_result();
+  while ($row1 = $result4->fetch_assoc()){
     $airline_name=$row1['airline_name'];
     $destination_station=$row1['departing_station'];
     $departing_station=$row1['destination_station'];

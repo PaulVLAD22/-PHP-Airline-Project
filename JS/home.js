@@ -31,17 +31,18 @@ function checkTime(i) {
 }
 
 function displayActiveTicket() {
+  
   var rightSide = document.getElementById("box-2");
   if (activeTicketsDisplaying == false) {
     rightSide.innerHTML = "<div id='ticketsDiv'><h1>Active Tickets:</h1><div class='userTicketsDiv' id='activeTicketsDiv'></div><h1>Inactive Tickets:</h1><div class='userTicketsDiv' id='inactiveTicketsDiv'></div><h1>Refused Tickets:</h1><div class='userTicketsDiv' id='refusedTicketsDiv'></div><form action='Back-End/delete_expired_tickets.php' method='POST'><input id='expiredTicketsBtn' name='submit' type='submit' value='Delete expired tickets'></form></div>";
     for (let i=0;i<array_tickets_active.length;i++){//active tickets
-      document.getElementById('activeTicketsDiv').innerHTML+="<span> "+array_tickets_active[i][0]+" price:"+array_tickets_active[i][1]+"$-from:"+array_tickets_active[i][2]+"-to:"+array_tickets_active[i][3]+"</span>";
+      document.getElementById('activeTicketsDiv').innerHTML+="<form action='Back-End/generate_receipt.php' method='post'><span class='tickets_span'><input type='hidden' value="+array_tickets_active[i][4]+" name='ticket_id'>"+array_tickets_active[i][0]+"price:"+array_tickets_active[i][1]+"$-from:"+array_tickets_active[i][2]+"-to:"+array_tickets_active[i][3]+"<button type='submit'>PDF</button></span></form>";
     }
     for (let i=0;i<array_tickets_inactive.length;i++){//active tickets
-      document.getElementById('inactiveTicketsDiv').innerHTML+="<span> "+array_tickets_inactive[i][0]+" price:"+array_tickets_inactive[i][1]+"$-from:"+array_tickets_inactive[i][2]+"-to:"+array_tickets_inactive[i][3]+"</span>";
+      document.getElementById('inactiveTicketsDiv').innerHTML+="<span class='tickets_span'> "+array_tickets_inactive[i][0]+" price:"+array_tickets_inactive[i][1]+"-from:"+array_tickets_inactive[i][2]+"-to:"+array_tickets_inactive[i][3]+"</span>";
     }
     for (let i=0;i<array_tickets_refused.length;i++){//active tickets
-      document.getElementById('refusedTicketsDiv').innerHTML+="<span> "+array_tickets_refused[i][0]+" price:"+array_tickets_refused[i][1]+"$-from:"+array_tickets_refused[i][2]+"-to:"+array_tickets_refused[i][3]+"</span>";
+      document.getElementById('refusedTicketsDiv').innerHTML+="<span class='tickets_span'> "+array_tickets_refused[i][0]+" price:"+array_tickets_refused[i][1]+"$-from:"+array_tickets_refused[i][2]+"-to:"+array_tickets_refused[i][3]+"</span>";
     }
     activeTicketsDisplaying = true;
   } else {
@@ -57,7 +58,7 @@ function displayBuyTickets() {
   if (buyTicketsDisplaying == false) {
     if(first_name!=''){
       rightSide.innerHTML =
-        "<div id='buyTicketDiv'><form><label for='departingStation'>Departing Station:</label><br><input type='text' id='departingStation' name='departingStation'><br><label for='destinationStation'>Destination Station:</label><br><input type='text' id='destinationStation' name='destinationStation'><br><label for='flightDate'>Flight Date</label><br><input type='date' id='fightDate' name='flightDate'><br><br><input type='submit' value='Search' class='submitbtn' onclick='openFlightsPage()'></form></div>";
+        "<div id='buyTicketDiv'><form action='flightsInfo.php' method='post'><label for='departingStation'>Departing Station:</label><br><input type='text' id='departingStation' name='departingStation'><br><label for='destinationStation'>Destination Station:</label><br><input type='text' id='destinationStation' name='destinationStation'><br><label for='flightDate'>Flight Date</label><br><input type='date' id='fightDate' name='flightDate'><br><br><input type='submit' value='Search' class='submitbtn' onclick='openFlightsPage()'></form></div>";
     }else{
       rightSide.innerHTML ="<div id='displayDiv'>Complete your account details!</div>";
     }
@@ -97,7 +98,3 @@ function showFlightsPage() {
   // open html page with info from a site with all flights from a company
 }
 
-function openFlightsPage() {  // VA FI INLOCUIT DE UN FISIER PHP CARE VA DA CA POST statia plecare,destinatia,data
-  window.open('flightsInfo.php');
-  // display on right side (box-2 div) all flights information
-}
