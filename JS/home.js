@@ -58,7 +58,7 @@ function displayBuyTickets() {
   if (buyTicketsDisplaying == false) {
     if(first_name!=''){
       rightSide.innerHTML =
-        "<div id='buyTicketDiv'><form action='flightsInfo.php' method='post'><label for='departingStation'>Departing Station:</label><br><input type='text' id='departingStation' name='departingStation'><br><label for='destinationStation'>Destination Station:</label><br><input type='text' id='destinationStation' name='destinationStation'><br><label for='flightDate'>Flight Date</label><br><input type='date' id='fightDate' name='flightDate'><br><br><input type='submit' value='Search' class='submitbtn' onclick='openFlightsPage()'></form></div>";
+        "<div id='buyTicketDiv'><form action='flightsInfo.php' method='post'><label for='departingStation'>Departing Station:</label><br><input type='text' id='departingStation' name='departingStation'><br><label for='destinationStation'>Destination Station:</label><br><input type='text' id='destinationStation' name='destinationStation'><br><label for='flightDate'>Flight Date</label><br><input type='date' id='fightDate' name='flightDate'><br><br><input type='submit' value='Search' class='submitbtn' onclick='openFlightsPage()'></form><br><h3>"+buyTicketsProblem+"</h3></div>";
     }else{
       rightSide.innerHTML ="<div id='displayDiv'>Complete your account details!</div>";
     }

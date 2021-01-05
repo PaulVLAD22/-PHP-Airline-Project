@@ -5,6 +5,15 @@
   $departingStation=$_POST['departingStation'];
   $destinationStation=$_POST['destinationStation'];
   $flightDate=$_POST['flightDate'];
+  $_SESSION['buyTicketProblem']='';
+  if (strtotime($_POST['flightDate'])<strtotime('now') || !($_POST['flightDate'])){
+    $_SESSION['buyTicketsProblem']='Invalid Date';
+    header('location:/home.php');
+  }
+  if ($departing_times==$destinationStation){
+    $_SESSION['buyTicketsProblem']="Can't go to the same station";
+    header('location:/home.php');
+  }
   }
   else if ($_SERVER['REQUEST_METHOD']=="GET"){
     $departingStation=$_GET['departingStation'];
@@ -16,12 +25,14 @@
 
   error_reporting(E_ERROR | E_PARSE);
 
+  
+
   $departing_times=[];
   $arrival_times=[];
   $company_names=[];
   $ticket_prices=[];
   include ('Back-End/simple_html_dom.php');
-  echo "https://www.kayak.com/flights/".$departingStation."-".$destinationStation."/".$flightDate."/".$flightDate."?sort=bestflight_a";
+  // echo "https://www.kayak.com/flights/".$departingStation."-".$destinationStation."/".$flightDate."/".$flightDate."?sort=bestflight_a";
   $html1 = file_get_html("https://www.kayak.com/flights/".$departingStation."-".$destinationStation."/".$flightDate."/".$flightDate."?sort=bestflight_a");
   $html2 = file_get_html("https://www.kayak.com/flights/".$departingStation."-".$destinationStation."/".$flightDate."/".$flightDate."?sort=bestflight_a");
   $html = file_get_html("https://www.kayak.com/flights/".$departingStation."-".$destinationStation."/".$flightDate."/".$flightDate."?sort=bestflight_a");
@@ -79,12 +90,12 @@
     $flightsNr=$row['count(*)'];
   }
   if ($flightsNr==0){
-    for ($i=0;$i<sizeof($flight_details);$i++){
-      echo $flight_details[$i]['departingTime'];
-      echo $flight_details[$i]['arrivalTime'];
-      echo $flight_details[$i]['companyName'];
-      echo $flight_details[$i]['ticketPrice'];
-    }
+    // for ($i=0;$i<sizeof($flight_details);$i++){
+    //   echo $flight_details[$i]['departingTime'];
+    //   echo $flight_details[$i]['arrivalTime'];
+    //   echo $flight_details[$i]['companyName'];
+    //   echo $flight_details[$i]['ticketPrice'];
+    // }
     for ($i=0;$i<sizeof($flight_details);$i++){
       $sql = "insert into flight (flight_departure_date,airline_name,departing_station,destination_station,arrival_time,total_seats,ticket_price,last_empty_seat,departing_time) values (?,?,?,?,?,60,?,0,?)";
       $stmt = $conn->prepare($sql);
@@ -109,13 +120,11 @@
     }
     $flight_details = array_map("unserialize", array_unique(array_map("serialize", $flight_details)));
   }
-  
-  for ($i=0;$i<sizeof($flight_details);$i++){
-    echo $flight_details[$i]['departingTime'];
-    echo $flight_details[$i]['arrivalTime'];
-    echo $flight_details[$i]['companyName'];
-    echo $flight_details[$i]['ticketPrice'];
+  if (sizeof($flight_details)==0){
+    $_SESSION['buyTicketsProblem']='No flights';
+    header('location:home.php');
   }
+  
 }
 
   

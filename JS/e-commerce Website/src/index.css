@@ -1,0 +1,113 @@
+body {
+  margin: 0;
+  font-family: 'Open Sans';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+body {
+  display: grid;
+  height: 100vh;
+  grid-template-rows: auto 1fr auto;
+}
+
+header {
+  padding: 2rem;
+  text-align: center;
+}
+
+.nav-item{
+  margin-right:20px;
+}
+
+.navbar-main h1{
+  color:white;
+  margin-left:20px;
+  font-size:2rem;
+  font-weight: lighter;
+  letter-spacing: 0.1rem;
+}
+.navbar-main a{
+  font-size:1.2rem;
+  letter-spacing: 0.1rem;
+}
+.nav-link{
+  cursor:pointer;
+}
+main {
+  background: white;
+  overflow-y:scroll;
+}
+h3{
+  font-size:1rem;
+  letter-spacing: 0.1rem;
+  font-weight: lighter;
+}
+footer {
+  padding: 0.7rem;
+  text-align: center;
+  color:white;
+}
+.navbar-aux a{
+  font-size:1.5rem;
+  letter-spacing: 0.1rem;
+  margin-left:20px;
+}
+
+
+@media (max-width: 576px) {
+  .navbar-main a{
+    font-size:0.8rem;
+  }
+  .navbar-main h1{
+    font-size:1rem;
+  }
+  footer{
+    padding: 0.5rem;
+  }
+  h3{
+    font-size:0.8rem;
+  }
+}
+
+
+@media (min-width:576px) and (max-width: 768px) {
+  .navbar-main a{
+    font-size:1rem;
+  }
+  .navbar-main h1{
+    font-size:1.2rem;
+  }
+  footer{
+    padding: 0.5rem;
+  }
+  h3{
+    font-size:0.8rem;
+  }
+}
+
+
+@media (min-width:768px) and (max-width: 992px) { 
+  .navbar-main a{
+    font-size:1rem;
+  }
+  .navbar-main h1{
+    font-size:1.2rem;
+  }
+  footer{
+    padding: 0.5rem;
+  }
+  h3{
+    font-size:0.8rem;
+  }
+}
+
+
+@media (min-width:992px) and (max-width: 1200px) {
+
+}

@@ -20,6 +20,9 @@
   $date_of_birth = $_SESSION['date_of_birth'];
   $social_status = $_SESSION['social_status'];
   $phone_number = $_SESSION['phone_number'];
+  $buyTicketsProblem='';
+  if (isset($_SESSION['buyTicketsProblem']))
+    $buyTicketsProblem=$_SESSION['buyTicketsProblem'];
   
   echo '<title>Vlavion ' . $user . '</title>';
   ?>
@@ -44,6 +47,7 @@
     var array_tickets_inactive='<?php echo json_encode($array_tickets_inactive) ?>';
     var array_tickets_active='<?php echo json_encode($array_tickets_active) ?>';
     var array_tickets_refused='<?php echo json_encode($array_tickets_refused) ?>';
+    var buyTicketsProblem='<?php echo $buyTicketsProblem ?>';
     <?php
     include "JS/home.js";
     ?>

@@ -13,7 +13,11 @@ for (let i=0;i<array_flights.length-1;i++){
 }
 
 function loadFlights(){
-  for (let i=0;i<array_flights.length;i++){
-    document.getElementById("flightsList").innerHTML+="<form action='Back-End/buyTicket.php' method='post'><input name='flightDepartureDate' value='"+flightDepartureDate+"' hidden><input name='departingStation' value='"+departingStation+"' hidden><input name='destinationStation' value='"+destinationStation+"' hidden><input name='companyName' readonly value='"+array_flights[i]['companyName']+"'><input name='ticketPrice' readonly value='"+array_flights[i]['ticketPrice']+"'><input name='departingTime' readonly value='"+array_flights[i]['departingTime']+"'><input name='arrivalTime' readonly value='"+array_flights[i]['arrivalTime']+"'><input type='submit' name='postButton' value='Buy Ticket'></form>"
+  if (array_flights.length==0){
+    document.getElementById("flightsList").innerHTML+="No flights/Wrong input";
   }
+  else
+    for (let i=0;i<array_flights.length;i++){
+      document.getElementById("flightsList").innerHTML+="<form action='Back-End/buyTicket.php' method='post'><input name='flightDepartureDate' value='"+flightDepartureDate+"' hidden><input name='departingStation' value='"+departingStation+"' hidden><input name='destinationStation' value='"+destinationStation+"' hidden><input name='companyName' readonly value='"+array_flights[i]['companyName']+"'><input name='ticketPrice' readonly value='"+array_flights[i]['ticketPrice']+"'><input name='departingTime' readonly value='"+array_flights[i]['departingTime']+"'><input name='arrivalTime' readonly value='"+array_flights[i]['arrivalTime']+"'><input type='submit' name='postButton' value='Buy Ticket'></form>"
+    }
 }
