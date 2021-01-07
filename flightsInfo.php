@@ -10,8 +10,8 @@
     $_SESSION['buyTicketsProblem']='Invalid Date';
     header('location:/home.php');
   }
-  if ($departing_times==$destinationStation){
-    $_SESSION['buyTicketsProblem']="Can't go to the same station";
+  if ($departingStation==$destinationStation){
+    $_SESSION['buyTicketsProblem']="Cannnot go to the same station";
     header('location:/home.php');
   }
   }
@@ -36,23 +36,27 @@
   $html1 = file_get_html("https://www.kayak.com/flights/".$departingStation."-".$destinationStation."/".$flightDate."/".$flightDate."?sort=bestflight_a");
   $html2 = file_get_html("https://www.kayak.com/flights/".$departingStation."-".$destinationStation."/".$flightDate."/".$flightDate."?sort=bestflight_a");
   $html = file_get_html("https://www.kayak.com/flights/".$departingStation."-".$destinationStation."/".$flightDate."/".$flightDate."?sort=bestflight_a");
-  $list = $html->find('div[class="section times"]');
-  for ($i=0;$i<sizeof($list);$i=$i+2){
-    $list_array = $list[$i]->find("span");
-    array_push($departing_times,$list_array[0]->plaintext);
-    array_push($arrival_times,$list_array[4]->plaintext);
-    $ar = $list[$i]->find("div");
-    array_push($company_names,$ar[1]);
-  }
-  $a = $html->find("div[class='booking']");
-  for ($i=0;$i<sizeof($a);$i++){
-    try{
-      $txt= $a[$i]->find("span")[0]->find("span")[0];
-      if ($txt!=null){
-        array_push($ticket_prices,$txt);
-      }
-    }catch(Error $e){
+  try{
+    $list = $html->find('div[class="section times"]');
+    for ($i=0;$i<sizeof($list);$i=$i+2){
+      $list_array = $list[$i]->find("span");
+      array_push($departing_times,$list_array[0]->plaintext);
+      array_push($arrival_times,$list_array[4]->plaintext);
+      $ar = $list[$i]->find("div");
+      array_push($company_names,$ar[1]);
     }
+    $a = $html->find("div[class='booking']");
+    for ($i=0;$i<sizeof($a);$i++){
+      try{
+        $txt= $a[$i]->find("span")[0]->find("span")[0];
+        if ($txt!=null){
+          array_push($ticket_prices,$txt);
+        }
+      }catch(Error $e){
+      }
+    }
+  }catch(Error $e){
+
   }
   $flight_details=[];
   for ($i=0;$i<sizeof($departing_times);$i++){
@@ -123,6 +127,9 @@
   if (sizeof($flight_details)==0){
     $_SESSION['buyTicketsProblem']='No flights';
     header('location:home.php');
+  }
+  else{
+    $_SESSION['buyTicketsProblem']='';
   }
   
 }
